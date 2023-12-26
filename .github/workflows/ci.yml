@@ -32,6 +32,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to hosting provider
-        run: |
-          # Add your deployment commands here
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: build
