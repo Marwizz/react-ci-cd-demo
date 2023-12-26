@@ -2,7 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  console.log("Hello from CI / CD");
   return (
     <div className="App">
       <header className="App-header">
