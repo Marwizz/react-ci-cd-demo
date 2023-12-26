@@ -21,6 +21,28 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Check code practices with ESLint
+        run: npm run lint
+  
+      - name: Format code with Prettier
+        run: npm run format
+  
+      - name: Remove console.log statements
+        run: |
+          find . -name "*.js" -exec sed -i '/console\.log(/d' {} \;
+  
+      - name: Commit changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Apply code formatting and remove console.log statements"
+  
+      - name: Push changes
+        if: success()
+        run: |
+          git push origin main
+
       - name: Run tests
         run: npm test
 
