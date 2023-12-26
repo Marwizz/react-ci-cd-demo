@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16]  
+        node-version: [16]
 
     steps:
       - name: Checkout repository
@@ -33,7 +33,7 @@ jobs:
 
       - name: Remove console.log statements
         run: |
-          find . -name "*.js" -exec sed -i '/console\.log(/d' {} \;
+          find . -name "node_modules" -prune -o -name "*.js" -exec sed -i '/console\.log(/d' {} \;
 
       - name: Commit changes
         run: |
