@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    environment {
+        GITHUB_TOKEN = credentials('github-token')
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building.."
+                sh '''
+                echo "building hello world"
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                echo "testing hello world"
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
+            }
+        }
+    }
+}
