@@ -10,7 +10,7 @@ pipeline {
         //checkout stage to main branch
         stage('Update local codebase') {
             steps {
-                sh 'git pull'
+                sh 'git pull origin main'
                 sh 'git checkout main'
             }
         }
