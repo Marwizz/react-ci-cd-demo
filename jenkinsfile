@@ -73,12 +73,6 @@ pipeline {
             }
         }
 
-        // stage('Push changes') {
-        //     steps {
-        //         sh 'git push origin main'
-        //     }
-        // }
-
         stage('Run tests') {
             steps {
                 sh 'npm test'
