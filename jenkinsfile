@@ -8,8 +8,9 @@ pipeline {
     }
     stages {
         //checkout stage to main branch
-        stage('Checkout') {
+        stage('Update local codebase') {
             steps {
+                sh 'git pull'
                 sh 'git checkout main'
             }
         }
