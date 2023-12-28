@@ -7,15 +7,12 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
     }
     stages {
-        //checkout stage to main branch
-        // stage('Update local codebase') {
-        //     steps {
-        //         sh 'git clone https://github.com/Marwizz/react-ci-cd-demo.git'
-        //         sh 'cd react-ci-cd-demo'
-        //         sh 'git checkout main'
-        //         sh 'git pull origin main'
-        //     }
-        // }
+        stage('Clone repository') {
+            steps {
+                deleteDir() // delete the current directory
+                git 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
+            }
+        }
 
         stage('Set up Node.js') {
             steps {
