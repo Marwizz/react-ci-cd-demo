@@ -19,7 +19,7 @@ pipeline {
         stage('Clone repository') {
             steps {
                 sh '''
-                    git 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
+                    git clone 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
                     cd react-ci-cd-demo 
                 '''
             }
