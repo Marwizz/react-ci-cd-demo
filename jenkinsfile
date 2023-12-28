@@ -7,6 +7,14 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
     }
     stages {
+        //list current file path and directory
+        stage('List current directory') {
+            steps {
+                sh 'pwd'
+                sh 'ls -la'
+            }
+        }
+
         stage('Clone repository') {
             steps {
                 deleteDir() // delete the current directory
