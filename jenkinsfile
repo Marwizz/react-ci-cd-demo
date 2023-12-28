@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs 'nodejs'
+        nodejs 'NodeJS 21.4.0'
     }
     environment {
         GITHUB_TOKEN = credentials('github-token')
@@ -9,8 +9,10 @@ pipeline {
     stages {
         stage('Set up Node.js') {
             steps {
-                sh 'nvm install 16'
-                sh 'nvm use 16'
+                nodejs(nodeJSInstallationName: 'NodeJS 21.4.0') {
+                    sh 'node --version'
+                    sh 'npm --version'
+                }
             }
         }
 
