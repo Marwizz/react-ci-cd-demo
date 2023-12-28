@@ -10,6 +10,8 @@ pipeline {
         //checkout stage to main branch
         stage('Update local codebase') {
             steps {
+                sh 'git clone https://github.com/Marwizz/react-ci-cd-demo.git'
+                sh 'cd react-ci-cd-demo'
                 sh 'git checkout main'
                 sh 'git pull origin main'
             }
