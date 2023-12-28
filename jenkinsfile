@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Set up Node.js') {
             steps {
+                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
                 sh 'nvm install 16'
                 sh 'nvm use 16'
             }
