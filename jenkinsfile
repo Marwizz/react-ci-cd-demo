@@ -7,6 +7,13 @@ pipeline {
         GITHUB_TOKEN = credentials('github-token')
     }
     stages {
+        //checkout stage to main branch
+        stage('Checkout') {
+            steps {
+                sh 'git checkout main'
+            }
+        }
+
         stage('Set up Node.js') {
             steps {
                 nodejs(nodeJSInstallationName: 'NodeJS 21.4.0') {
@@ -66,6 +73,12 @@ pipeline {
         stage('Build app') {
             steps {
                 sh 'npm run build'
+            }
+        }
+
+        stage('Clean up') {
+            steps {
+                sh 'rm -rf build'
             }
         }
     }
