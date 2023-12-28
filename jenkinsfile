@@ -18,8 +18,10 @@ pipeline {
 
         stage('Clone repository') {
             steps {
-                deleteDir() // delete the current directory
-                git 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
+                sh '''
+                    git 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
+                    cd react-ci-cd-demo 
+                '''
             }
         }
 
