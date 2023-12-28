@@ -27,12 +27,13 @@ pipeline {
         stage('Checkout main branch') {
             steps {
                 sh '''
+                    git status
                     git checkout main
                     git pull
                 '''
             }
         }
-        
+
         stage('Install dependencies') {
             steps {
                 sh 'npm install'
