@@ -1,3 +1,4 @@
+# this was previously in the .github/workflows folder, not using anymore currently, we are using jenkins
 name: CI
 
 on:
