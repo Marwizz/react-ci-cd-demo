@@ -14,16 +14,6 @@ pipeline {
                 sh 'ls -la'
             }
         }
-        //test
-
-        stage('Clone repository') {
-            steps {
-                sh '''
-                    git clone 'https://github.com/Marwizz/react-ci-cd-demo.git' // clone the repository again
-                    cd react-ci-cd-demo 
-                '''
-            }
-        }
 
         stage('Set up Node.js') {
             steps {
@@ -34,6 +24,15 @@ pipeline {
             }
         }
 
+        stage('Checkout main branch') {
+            steps {
+                sh '''
+                    git checkout main
+                    git pull
+                '''
+            }
+        }
+        
         stage('Install dependencies') {
             steps {
                 sh 'npm install'
